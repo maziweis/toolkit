@@ -1,0 +1,378 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:s1="http://microsoft.com/wsdl/types/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:import namespace="http://microsoft.com/wsdl/types/" />
+      <s:element name="GetMetadata">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="tableKey" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetMetadataResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetMetadataResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetSchoolData">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="districtID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="townsID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="schoolName" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetSchoolDataResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetSchoolDataResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetAreaData">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="parentID" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetAreaDataResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetAreaDataResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetBookData">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Stage" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Grade" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Subject" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Edition" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Booklet" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetBookDataResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetBookDataResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetCatalogkData">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="BookId" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetCatalogkDataResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetCatalogkDataResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetResourceTypeChild">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="parentID" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetResourceTypeChildResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetResourceTypeChildResult" type="tns:ArrayOfTb_Template_Tree" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfTb_Template_Tree">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="tb_Template_Tree" nillable="true" type="tns:tb_Template_Tree" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="tb_Template_Tree">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:Action">
+            <s:sequence>
+              <s:element minOccurs="1" maxOccurs="1" name="ID" nillable="true" type="s:int" />
+              <s:element minOccurs="1" maxOccurs="1" name="GUID" type="s1:guid" />
+              <s:element minOccurs="0" maxOccurs="1" name="CodeName" type="s:string" />
+              <s:element minOccurs="1" maxOccurs="1" name="Seq" nillable="true" type="s:int" />
+              <s:element minOccurs="1" maxOccurs="1" name="ParentID" nillable="true" type="s:int" />
+              <s:element minOccurs="0" maxOccurs="1" name="Path" type="s:string" />
+              <s:element minOccurs="1" maxOccurs="1" name="CreateDateTime" nillable="true" type="s:dateTime" />
+              <s:element minOccurs="1" maxOccurs="1" name="ModifyDateTime" nillable="true" type="s:dateTime" />
+              <s:element minOccurs="1" maxOccurs="1" name="Deleted" nillable="true" type="s:int" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="Action" abstract="true" />
+      <s:element name="GetCatalogChild">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="parentID" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetCatalogChildResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetCatalogChildResult" type="tns:ArrayOfTb_StandardCatalog" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfTb_StandardCatalog">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="tb_StandardCatalog" nillable="true" type="tns:tb_StandardCatalog" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="tb_StandardCatalog">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:Action">
+            <s:sequence>
+              <s:element minOccurs="1" maxOccurs="1" name="Seq" nillable="true" type="s:int" />
+              <s:element minOccurs="1" maxOccurs="1" name="ParentID" nillable="true" type="s:int" />
+              <s:element minOccurs="1" maxOccurs="1" name="CreateDateTime" nillable="true" type="s:dateTime" />
+              <s:element minOccurs="1" maxOccurs="1" name="ModifyDateTime" nillable="true" type="s:dateTime" />
+              <s:element minOccurs="1" maxOccurs="1" name="Deleted" nillable="true" type="s:int" />
+              <s:element minOccurs="1" maxOccurs="1" name="ID" type="s:int" />
+              <s:element minOccurs="1" maxOccurs="1" name="BookID" nillable="true" type="s:int" />
+              <s:element minOccurs="0" maxOccurs="1" name="FolderName" type="s:string" />
+              <s:element minOccurs="1" maxOccurs="1" name="StartPage" nillable="true" type="s:int" />
+              <s:element minOccurs="1" maxOccurs="1" name="EndPage" nillable="true" type="s:int" />
+              <s:element minOccurs="1" maxOccurs="1" name="Type" nillable="true" type="s:int" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+    </s:schema>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://microsoft.com/wsdl/types/">
+      <s:simpleType name="guid">
+        <s:restriction base="s:string">
+          <s:pattern value="[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}" />
+        </s:restriction>
+      </s:simpleType>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="GetMetadataSoapIn">
+    <wsdl:part name="parameters" element="tns:GetMetadata" />
+  </wsdl:message>
+  <wsdl:message name="GetMetadataSoapOut">
+    <wsdl:part name="parameters" element="tns:GetMetadataResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetSchoolDataSoapIn">
+    <wsdl:part name="parameters" element="tns:GetSchoolData" />
+  </wsdl:message>
+  <wsdl:message name="GetSchoolDataSoapOut">
+    <wsdl:part name="parameters" element="tns:GetSchoolDataResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetAreaDataSoapIn">
+    <wsdl:part name="parameters" element="tns:GetAreaData" />
+  </wsdl:message>
+  <wsdl:message name="GetAreaDataSoapOut">
+    <wsdl:part name="parameters" element="tns:GetAreaDataResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetBookDataSoapIn">
+    <wsdl:part name="parameters" element="tns:GetBookData" />
+  </wsdl:message>
+  <wsdl:message name="GetBookDataSoapOut">
+    <wsdl:part name="parameters" element="tns:GetBookDataResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetCatalogkDataSoapIn">
+    <wsdl:part name="parameters" element="tns:GetCatalogkData" />
+  </wsdl:message>
+  <wsdl:message name="GetCatalogkDataSoapOut">
+    <wsdl:part name="parameters" element="tns:GetCatalogkDataResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetResourceTypeChildSoapIn">
+    <wsdl:part name="parameters" element="tns:GetResourceTypeChild" />
+  </wsdl:message>
+  <wsdl:message name="GetResourceTypeChildSoapOut">
+    <wsdl:part name="parameters" element="tns:GetResourceTypeChildResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetCatalogChildSoapIn">
+    <wsdl:part name="parameters" element="tns:GetCatalogChild" />
+  </wsdl:message>
+  <wsdl:message name="GetCatalogChildSoapOut">
+    <wsdl:part name="parameters" element="tns:GetCatalogChildResponse" />
+  </wsdl:message>
+  <wsdl:portType name="ServiceSoap">
+    <wsdl:operation name="GetMetadata">
+      <wsdl:input message="tns:GetMetadataSoapIn" />
+      <wsdl:output message="tns:GetMetadataSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSchoolData">
+      <wsdl:input message="tns:GetSchoolDataSoapIn" />
+      <wsdl:output message="tns:GetSchoolDataSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAreaData">
+      <wsdl:input message="tns:GetAreaDataSoapIn" />
+      <wsdl:output message="tns:GetAreaDataSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetBookData">
+      <wsdl:input message="tns:GetBookDataSoapIn" />
+      <wsdl:output message="tns:GetBookDataSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCatalogkData">
+      <wsdl:input message="tns:GetCatalogkDataSoapIn" />
+      <wsdl:output message="tns:GetCatalogkDataSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetResourceTypeChild">
+      <wsdl:input message="tns:GetResourceTypeChildSoapIn" />
+      <wsdl:output message="tns:GetResourceTypeChildSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCatalogChild">
+      <wsdl:input message="tns:GetCatalogChildSoapIn" />
+      <wsdl:output message="tns:GetCatalogChildSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="ServiceSoap" type="tns:ServiceSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetMetadata">
+      <soap:operation soapAction="http://tempuri.org/GetMetadata" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSchoolData">
+      <soap:operation soapAction="http://tempuri.org/GetSchoolData" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAreaData">
+      <soap:operation soapAction="http://tempuri.org/GetAreaData" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetBookData">
+      <soap:operation soapAction="http://tempuri.org/GetBookData" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCatalogkData">
+      <soap:operation soapAction="http://tempuri.org/GetCatalogkData" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetResourceTypeChild">
+      <soap:operation soapAction="http://tempuri.org/GetResourceTypeChild" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCatalogChild">
+      <soap:operation soapAction="http://tempuri.org/GetCatalogChild" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="ServiceSoap12" type="tns:ServiceSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetMetadata">
+      <soap12:operation soapAction="http://tempuri.org/GetMetadata" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSchoolData">
+      <soap12:operation soapAction="http://tempuri.org/GetSchoolData" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAreaData">
+      <soap12:operation soapAction="http://tempuri.org/GetAreaData" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetBookData">
+      <soap12:operation soapAction="http://tempuri.org/GetBookData" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCatalogkData">
+      <soap12:operation soapAction="http://tempuri.org/GetCatalogkData" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetResourceTypeChild">
+      <soap12:operation soapAction="http://tempuri.org/GetResourceTypeChild" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCatalogChild">
+      <soap12:operation soapAction="http://tempuri.org/GetCatalogChild" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="Service">
+    <wsdl:port name="ServiceSoap" binding="tns:ServiceSoap">
+      <soap:address location="http://192.168.3.2:8027/Service/MetadataService.asmx" />
+    </wsdl:port>
+    <wsdl:port name="ServiceSoap12" binding="tns:ServiceSoap12">
+      <soap12:address location="http://192.168.3.2:8027/Service/MetadataService.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
